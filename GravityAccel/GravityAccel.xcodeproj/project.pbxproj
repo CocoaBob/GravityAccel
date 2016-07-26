@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		454105B31D47AA3800B71CEA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454105B21D47AA3800B71CEA /* CoreMotion.framework */; };
+		454105C41D47AAFF00B71CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454105B61D47AAFF00B71CEA /* Assets.xcassets */; };
+		454105C51D47AAFF00B71CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454105B71D47AAFF00B71CEA /* LaunchScreen.storyboard */; };
+		454105C61D47AAFF00B71CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454105B91D47AAFF00B71CEA /* Main.storyboard */; };
+		454105C71D47AAFF00B71CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105BC1D47AAFF00B71CEA /* AppDelegate.swift */; };
+		454105C81D47AAFF00B71CEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105BF1D47AAFF00B71CEA /* ViewController.swift */; };
+		454105C91D47AAFF00B71CEA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105C11D47AAFF00B71CEA /* MotionManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4541059B1D47AA0400B71CEA /* GravityAccel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GravityAccel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		454105B21D47AA3800B71CEA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		454105B61D47AAFF00B71CEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		454105B81D47AAFF00B71CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		454105BA1D47AAFF00B71CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		454105BC1D47AAFF00B71CEA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		454105BF1D47AAFF00B71CEA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		454105C11D47AAFF00B71CEA /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		454105C31D47AAFF00B71CEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		454105981D47AA0400B71CEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454105B31D47AA3800B71CEA /* CoreMotion.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		454105921D47AA0400B71CEA = {
+			isa = PBXGroup;
+			children = (
+				4541059D1D47AA0400B71CEA /* GravityAccel */,
+				4541059C1D47AA0400B71CEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4541059C1D47AA0400B71CEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4541059B1D47AA0400B71CEA /* GravityAccel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4541059D1D47AA0400B71CEA /* GravityAccel */ = {
+			isa = PBXGroup;
+			children = (
+				454105B51D47AAFF00B71CEA /* Resources */,
+				454105BB1D47AAFF00B71CEA /* Sources */,
+				454105C21D47AAFF00B71CEA /* Supporting Files */,
+				454105B41D47AAF400B71CEA /* Frameworks */,
+			);
+			path = GravityAccel;
+			sourceTree = "<group>";
+		};
+		454105B41D47AAF400B71CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				454105B21D47AA3800B71CEA /* CoreMotion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		454105B51D47AAFF00B71CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				454105B61D47AAFF00B71CEA /* Assets.xcassets */,
+				454105B71D47AAFF00B71CEA /* LaunchScreen.storyboard */,
+				454105B91D47AAFF00B71CEA /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		454105BB1D47AAFF00B71CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				454105BC1D47AAFF00B71CEA /* AppDelegate.swift */,
+				454105BD1D47AAFF00B71CEA /* Modules */,
+				454105C01D47AAFF00B71CEA /* Utilities */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		454105BD1D47AAFF00B71CEA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				454105BE1D47AAFF00B71CEA /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		454105BE1D47AAFF00B71CEA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				454105BF1D47AAFF00B71CEA /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		454105C01D47AAFF00B71CEA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				454105C11D47AAFF00B71CEA /* MotionManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		454105C21D47AAFF00B71CEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				454105C31D47AAFF00B71CEA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4541059A1D47AA0400B71CEA /* GravityAccel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 454105AD1D47AA0400B71CEA /* Build configuration list for PBXNativeTarget "GravityAccel" */;
+			buildPhases = (
+				454105971D47AA0400B71CEA /* Sources */,
+				454105981D47AA0400B71CEA /* Frameworks */,
+				454105991D47AA0400B71CEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GravityAccel;
+			productName = GravityAccel;
+			productReference = 4541059B1D47AA0400B71CEA /* GravityAccel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		454105931D47AA0400B71CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Cocoabob;
+				TargetAttributes = {
+					4541059A1D47AA0400B71CEA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 454105961D47AA0400B71CEA /* Build configuration list for PBXProject "GravityAccel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 454105921D47AA0400B71CEA;
+			productRefGroup = 4541059C1D47AA0400B71CEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4541059A1D47AA0400B71CEA /* GravityAccel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		454105991D47AA0400B71CEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454105C61D47AAFF00B71CEA /* Main.storyboard in Resources */,
+				454105C41D47AAFF00B71CEA /* Assets.xcassets in Resources */,
+				454105C51D47AAFF00B71CEA /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		454105971D47AA0400B71CEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454105C81D47AAFF00B71CEA /* ViewController.swift in Sources */,
+				454105C91D47AAFF00B71CEA /* MotionManager.swift in Sources */,
+				454105C71D47AAFF00B71CEA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		454105B71D47AAFF00B71CEA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				454105B81D47AAFF00B71CEA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		454105B91D47AAFF00B71CEA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				454105BA1D47AAFF00B71CEA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		454105AB1D47AA0400B71CEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		454105AC1D47AA0400B71CEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		454105AE1D47AA0400B71CEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "GravityAccel/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CocoaBob.GravityAccel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		454105AF1D47AA0400B71CEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "GravityAccel/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CocoaBob.GravityAccel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		454105961D47AA0400B71CEA /* Build configuration list for PBXProject "GravityAccel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454105AB1D47AA0400B71CEA /* Debug */,
+				454105AC1D47AA0400B71CEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		454105AD1D47AA0400B71CEA /* Build configuration list for PBXNativeTarget "GravityAccel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454105AE1D47AA0400B71CEA /* Debug */,
+				454105AF1D47AA0400B71CEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 454105931D47AA0400B71CEA /* Project object */;
+}
