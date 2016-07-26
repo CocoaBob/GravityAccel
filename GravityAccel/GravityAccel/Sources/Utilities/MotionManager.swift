@@ -17,12 +17,13 @@ class MotionManager {
     
     private let motionQueue: NSOperationQueue = NSOperationQueue()
     private let motionManager: CMMotionManager = CMMotionManager()
-    private let motionFilter: MotionFilter = MotionFilter(level: 3)
+    private let motionFilter: MotionFilter = MotionFilter()
     private var observers: [MotionManagerObserver] = [MotionManagerObserver]()
     
-    init() {
+    init(fps: Double = 60.0, denoiseLevel: Int = 0) {
         self.motionQueue.maxConcurrentOperationCount = 1
-        self.motionManager.deviceMotionUpdateInterval = 1 / 100.0
+        self.motionManager.deviceMotionUpdateInterval = 1 / fps
+        self.motionFilter.denoiseLevel = denoiseLevel
     }
     
     deinit {
@@ -35,6 +36,10 @@ class MotionManager {
     
     func removeObserver(observer: MotionManagerObserver) {
         self.observers = self.observers.filter() { $0 !== observer }
+    }
+    
+    func isRunning() -> Bool {
+        return self.motionManager.deviceMotionActive
     }
     
     func start() {
@@ -68,12 +73,12 @@ class MotionManager {
 
 class MotionFilter {
     
-    var filterLevel: Int = 3
+    var denoiseLevel: Int = 3
     private var lastValues: [Double] = [Double]()
     private var lastValuesSum: Double = 0
     
-    init(level: Int) {
-        self.filterLevel = level
+    init(denoiseLevel: Int = 0) {
+        self.denoiseLevel = denoiseLevel
     }
     
     func reset() {
@@ -82,11 +87,11 @@ class MotionFilter {
     }
     
     func filter(value: Double) -> Double {
-        if filterLevel == 0 {
+        if denoiseLevel == 0 {
             return value
         }
         
-        while self.lastValues.count >= filterLevel {
+        while self.lastValues.count >= denoiseLevel {
             if let firstValue = self.lastValues.first {
                 self.lastValuesSum -= firstValue
                 self.lastValues.removeAtIndex(0)

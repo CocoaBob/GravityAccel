@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		335FC68A17C8FFBF05DE0FD4 /* Pods_GravityAccel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8FA3644CDCE983E1760A7D /* Pods_GravityAccel.framework */; };
 		454105B31D47AA3800B71CEA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454105B21D47AA3800B71CEA /* CoreMotion.framework */; };
 		454105C41D47AAFF00B71CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454105B61D47AAFF00B71CEA /* Assets.xcassets */; };
 		454105C51D47AAFF00B71CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454105B71D47AAFF00B71CEA /* LaunchScreen.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C8FA3644CDCE983E1760A7D /* Pods_GravityAccel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GravityAccel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4541059B1D47AA0400B71CEA /* GravityAccel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GravityAccel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		454105B21D47AA3800B71CEA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		454105B61D47AAFF00B71CEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		454105BF1D47AAFF00B71CEA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		454105C11D47AAFF00B71CEA /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		454105C31D47AAFF00B71CEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FEE4621FEA2F748AC52F828 /* Pods-GravityAccel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityAccel.release.xcconfig"; path = "../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel.release.xcconfig"; sourceTree = "<group>"; };
+		8B073DBE77ACD3EB75264249 /* Pods-GravityAccel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityAccel.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +38,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				454105B31D47AA3800B71CEA /* CoreMotion.framework in Frameworks */,
+				335FC68A17C8FFBF05DE0FD4 /* Pods_GravityAccel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07C7EC5F04604606A9439A58 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B073DBE77ACD3EB75264249 /* Pods-GravityAccel.debug.xcconfig */,
+				4FEE4621FEA2F748AC52F828 /* Pods-GravityAccel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		454105921D47AA0400B71CEA = {
 			isa = PBXGroup;
 			children = (
 				4541059D1D47AA0400B71CEA /* GravityAccel */,
 				4541059C1D47AA0400B71CEA /* Products */,
+				07C7EC5F04604606A9439A58 /* Pods */,
+				AC9649A60B92854AA5ADD3AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +143,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC9649A60B92854AA5ADD3AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C8FA3644CDCE983E1760A7D /* Pods_GravityAccel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 454105AD1D47AA0400B71CEA /* Build configuration list for PBXNativeTarget "GravityAccel" */;
 			buildPhases = (
+				26D6B655A0A10DDAA0BC0761 /* [CP] Check Pods Manifest.lock */,
 				454105971D47AA0400B71CEA /* Sources */,
 				454105981D47AA0400B71CEA /* Frameworks */,
 				454105991D47AA0400B71CEA /* Resources */,
+				4EB94A8125291B11165AB2BC /* [CP] Embed Pods Frameworks */,
+				00C25439E55067F67D79F86D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +219,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00C25439E55067F67D79F86D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26D6B655A0A10DDAA0BC0761 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4EB94A8125291B11165AB2BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		454105971D47AA0400B71CEA /* Sources */ = {
@@ -313,6 +388,7 @@
 		};
 		454105AE1D47AA0400B71CEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B073DBE77ACD3EB75264249 /* Pods-GravityAccel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "GravityAccel/Supporting Files/Info.plist";
@@ -324,6 +400,7 @@
 		};
 		454105AF1D47AA0400B71CEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FEE4621FEA2F748AC52F828 /* Pods-GravityAccel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "GravityAccel/Supporting Files/Info.plist";
@@ -352,6 +429,7 @@
 				454105AF1D47AA0400B71CEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
