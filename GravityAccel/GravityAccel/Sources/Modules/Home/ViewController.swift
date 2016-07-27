@@ -92,6 +92,7 @@ extension ViewController {
         xAxis.labelFont = UIFont.systemFontOfSize(9)
         xAxis.drawGridLinesEnabled = true
         xAxis.labelPosition = .Bottom;
+        xAxis.spaceBetweenLabels = Int(4)
         
         self.chartView.rightAxis.enabled = false
         
@@ -108,9 +109,13 @@ extension ViewController {
         dataSet.drawFilledEnabled = false
         dataSet.drawCirclesEnabled = false
         dataSet.drawCircleHoleEnabled = false
-        dataSet.drawHorizontalHighlightIndicatorEnabled = false
-        dataSet.drawVerticalHighlightIndicatorEnabled = false
+//        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+//        dataSet.drawVerticalHighlightIndicatorEnabled = false
         dataSet.setColor(UIColor.blueColor())
+        
+        let marker = BalloonMarker(color: UIColor(white: 0.9, alpha: 1), font: UIFont.systemFontOfSize(9), insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
+        marker.minimumSize = CGSize(width: 48, height: 30)
+        self.chartView.marker = marker
         
         self.chartView.data = LineChartData(xVals: [String?](), dataSets: [dataSet])
     }
@@ -127,7 +132,7 @@ extension ViewController {
             for i in 0..<self.chartValues.count {
                 let duration = self.chartDurations[i]
                 if duration > 0 {
-                    xVals.append(String(format: "%.1fs", duration))
+                    xVals.append(String(format: "%.2fs", duration))
                 } else {
                     xVals.append(nil)
                 }
@@ -144,13 +149,13 @@ extension ViewController {
     
     func start() {
         self.motionManager.start()
-        self.btnAction.setTitle("Stop", forState: .Normal)
+        self.btnAction.setTitle("Pause", forState: .Normal)
         self.startTimestamp = NSDate.timeIntervalSinceReferenceDate()
     }
     
     func stop() {
         self.motionManager.stop()
-        self.btnAction.setTitle("Start", forState: .Normal)
+        self.btnAction.setTitle("Continue", forState: .Normal)
     }
     
     @IBAction func toggle() {

@@ -15,6 +15,7 @@
 		454105C71D47AAFF00B71CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105BC1D47AAFF00B71CEA /* AppDelegate.swift */; };
 		454105C81D47AAFF00B71CEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105BF1D47AAFF00B71CEA /* ViewController.swift */; };
 		454105C91D47AAFF00B71CEA /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454105C11D47AAFF00B71CEA /* MotionManager.swift */; };
+		457032A91D48F3B200A5FA8C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457032A81D48F3B200A5FA8C /* BalloonMarker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		454105BF1D47AAFF00B71CEA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		454105C11D47AAFF00B71CEA /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		454105C31D47AAFF00B71CEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		457032A81D48F3B200A5FA8C /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		4FEE4621FEA2F748AC52F828 /* Pods-GravityAccel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityAccel.release.xcconfig"; path = "../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel.release.xcconfig"; sourceTree = "<group>"; };
 		8B073DBE77ACD3EB75264249 /* Pods-GravityAccel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityAccel.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-GravityAccel/Pods-GravityAccel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 		454105BE1D47AAFF00B71CEA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				457032A81D48F3B200A5FA8C /* BalloonMarker.swift */,
 				454105BF1D47AAFF00B71CEA /* ViewController.swift */,
 			);
 			path = Home;
@@ -277,6 +280,7 @@
 				454105C81D47AAFF00B71CEA /* ViewController.swift in Sources */,
 				454105C91D47AAFF00B71CEA /* MotionManager.swift in Sources */,
 				454105C71D47AAFF00B71CEA /* AppDelegate.swift in Sources */,
+				457032A91D48F3B200A5FA8C /* BalloonMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
