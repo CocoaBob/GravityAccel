@@ -21,7 +21,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-11-NNO">
-                                        <rect key="frame" x="277" y="562" width="47" height="30"/>
+                                        <rect key="frame" x="261" y="566" width="79" height="34"/>
+                                        <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                                         <state key="normal" title="Toggle"/>
                                         <connections>
                                             <action selector="toggle" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCJ-f6-Eox"/>
@@ -31,7 +32,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vqI-11-NNO" firstAttribute="centerX" secondItem="2ua-bi-nJ2" secondAttribute="centerX" id="Xnp-Zu-Toj"/>
-                                    <constraint firstAttribute="bottom" secondItem="vqI-11-NNO" secondAttribute="bottom" constant="8" id="Y2A-2T-tqQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="vqI-11-NNO" secondAttribute="bottom" id="Y2A-2T-tqQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -44,6 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAction" destination="vqI-11-NNO" id="Liw-p9-nIs"/>
                         <outlet property="chartView" destination="2ua-bi-nJ2" id="tF1-sz-y3E"/>
                     </connections>
                 </viewController>
