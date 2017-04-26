@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet var chartView: LineChartView!
     @IBOutlet var btnAction: UIButton!
     
-    private let chartValuesMaxCount = 600
-    private let motionManagerFPS = 30
-    private let motionManager = MotionManager()
-    private var chartValues = [Double]()
-    private var chartDurations = [Double]()
+    fileprivate let chartValuesMaxCount = 600
+    fileprivate let motionManagerFPS = 30
+    fileprivate let motionManager = MotionManager()
+    fileprivate var chartValues = [Double]()
+    fileprivate var chartDurations = [Double]()
     
-    private var startTimestamp: NSTimeInterval = 0
-    private var isUpdatingChartView = false
+    fileprivate var startTimestamp: TimeInterval = 0
+    fileprivate var isUpdatingChartView = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +35,13 @@ class ViewController: UIViewController {
         self.motionManager.removeObserver(self)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.start()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.stop()
@@ -51,16 +51,16 @@ class ViewController: UIViewController {
 // MARK: Motion
 extension ViewController: MotionManagerObserver {
     
-    func motionManagerDidUpdateVerticalAcceleration(value: Double) {
+    func motionManagerDidUpdateVerticalAcceleration(_ value: Double) {
         if !self.isUpdatingChartView {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.isUpdatingChartView = true
                 while self.chartValues.count > self.chartValuesMaxCount {
-                    self.chartValues.removeAtIndex(0)
-                    self.chartDurations.removeAtIndex(0)
+                    self.chartValues.remove(at: 0)
+                    self.chartDurations.remove(at: 0)
                 }
                 self.chartValues.append(value)
-                self.chartDurations.append(NSDate.timeIntervalSinceReferenceDate() - self.startTimestamp)
+                self.chartDurations.append(Date.timeIntervalSinceReferenceDate - self.startTimestamp)
                 self.updateChart()
                 self.isUpdatingChartView = false
             }
@@ -71,7 +71,7 @@ extension ViewController: MotionManagerObserver {
 // MARK: Chart
 extension ViewController {
     
-    private func setupChart() {
+    fileprivate func setupChart() {
         // Reset all
         self.chartValues.removeAll()
         self.self.chartDurations.removeAll()
@@ -81,18 +81,18 @@ extension ViewController {
         }
         
         // Chart view
-        self.chartView.legend.form = .Line
+        self.chartView.legend.form = .line
         self.chartView.autoScaleMinMaxEnabled = false
-        self.chartView.backgroundColor = UIColor.whiteColor()
-        self.chartView.descriptionText = "\(chartValuesMaxCount/motionManagerFPS) seconds history"
+        self.chartView.backgroundColor = UIColor.white
+        self.chartView.chartDescription?.text = "\(chartValuesMaxCount/motionManagerFPS) seconds history"
         
         self.chartView.viewPortHandler
         
         let xAxis = self.chartView.xAxis
-        xAxis.labelFont = UIFont.systemFontOfSize(9)
+        xAxis.labelFont = UIFont.systemFont(ofSize: 9)
         xAxis.drawGridLinesEnabled = true
-        xAxis.labelPosition = .Bottom;
-        xAxis.spaceBetweenLabels = Int(4)
+        xAxis.labelPosition = .bottom;
+//        xAxis.spaceBetweenLabels = Int(4)
         
         self.chartView.rightAxis.enabled = false
         
@@ -102,44 +102,35 @@ extension ViewController {
         leftAxis.drawGridLinesEnabled = true
         leftAxis.drawZeroLineEnabled = true
         
-        let dataSet = LineChartDataSet(yVals: nil, label: "Accel Changes")
-        dataSet.mode = .Linear
+        let dataSet = LineChartDataSet(values: nil, label: "Accel Changes")
+        dataSet.mode = .linear
         dataSet.lineWidth = 1
         dataSet.drawValuesEnabled = false
         dataSet.drawFilledEnabled = false
         dataSet.drawCirclesEnabled = false
         dataSet.drawCircleHoleEnabled = false
-//        dataSet.drawHorizontalHighlightIndicatorEnabled = false
-//        dataSet.drawVerticalHighlightIndicatorEnabled = false
-        dataSet.setColor(UIColor.blueColor())
+        dataSet.setColor(UIColor.blue)
         
-        let marker = BalloonMarker(color: UIColor(white: 0.9, alpha: 1), font: UIFont.systemFontOfSize(9), insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
+        let marker = BalloonMarker(color: UIColor(white: 0.9, alpha: 1),
+                                   font: UIFont.systemFont(ofSize: 9),
+                                   textColor: UIColor.black,
+                                   insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
         marker.minimumSize = CGSize(width: 48, height: 30)
         self.chartView.marker = marker
         
-        self.chartView.data = LineChartData(xVals: [String?](), dataSets: [dataSet])
+        self.chartView.data = LineChartData(dataSets: [dataSet])
     }
     
-    private func updateChart() {
+    fileprivate func updateChart() {
         if let dataSet = self.chartView.data?.dataSets[0] as? LineChartDataSet {
-            var yVals = [ChartDataEntry]()
-            for (i, value) in self.chartValues.enumerate() {
-                yVals.append(ChartDataEntry(value: value, xIndex: i))
+            var values = [ChartDataEntry]()
+            for (i, value) in self.chartValues.enumerated() {
+                values.append(ChartDataEntry(x: Double(i), y: value))
             }
-            dataSet.yVals = yVals
+            dataSet.values = values
             
-            var xVals = [String?]()
-            for i in 0..<self.chartValues.count {
-                let duration = self.chartDurations[i]
-                if duration > 0 {
-                    xVals.append(String(format: "%.2fs", duration))
-                } else {
-                    xVals.append(nil)
-                }
-            }
-            self.chartView.data?.xVals = xVals
-            
-            self.chartView.notifyDataSetChanged()
+            self.chartView.data?.notifyDataChanged();
+            self.chartView.notifyDataSetChanged();
         }
     }
 }
@@ -149,13 +140,13 @@ extension ViewController {
     
     func start() {
         self.motionManager.start()
-        self.btnAction.setTitle("Pause", forState: .Normal)
-        self.startTimestamp = NSDate.timeIntervalSinceReferenceDate()
+        self.btnAction.setTitle("Pause", for: UIControlState())
+        self.startTimestamp = Date.timeIntervalSinceReferenceDate
     }
     
     func stop() {
         self.motionManager.stop()
-        self.btnAction.setTitle("Continue", forState: .Normal)
+        self.btnAction.setTitle("Continue", for: UIControlState())
     }
     
     @IBAction func toggle() {

@@ -10,15 +10,15 @@ import CoreMotion
 
 protocol MotionManagerObserver: AnyObject {
     
-    func motionManagerDidUpdateVerticalAcceleration(value: Double)
+    func motionManagerDidUpdateVerticalAcceleration(_ value: Double)
 }
 
 class MotionManager {
     
-    private let motionQueue: NSOperationQueue = NSOperationQueue()
-    private let motionManager: CMMotionManager = CMMotionManager()
-    private let motionFilter: MotionFilter = MotionFilter()
-    private var observers: [MotionManagerObserver] = [MotionManagerObserver]()
+    fileprivate let motionQueue: OperationQueue = OperationQueue()
+    fileprivate let motionManager: CMMotionManager = CMMotionManager()
+    fileprivate let motionFilter: MotionFilter = MotionFilter()
+    fileprivate var observers: [MotionManagerObserver] = [MotionManagerObserver]()
     
     init(fps: Double = 60.0, denoiseLevel: Int = 0) {
         self.motionQueue.maxConcurrentOperationCount = 1
@@ -30,34 +30,34 @@ class MotionManager {
         self.stop()
     }
     
-    func addObserver(observer: MotionManagerObserver) {
+    func addObserver(_ observer: MotionManagerObserver) {
         self.observers.append(observer)
     }
     
-    func removeObserver(observer: MotionManagerObserver) {
+    func removeObserver(_ observer: MotionManagerObserver) {
         self.observers = self.observers.filter() { $0 !== observer }
     }
     
     func isRunning() -> Bool {
-        return self.motionManager.deviceMotionActive
+        return self.motionManager.isDeviceMotionActive
     }
     
     func start() {
-        if self.motionManager.deviceMotionAvailable {
-            self.motionManager.startDeviceMotionUpdatesToQueue(self.motionQueue, withHandler: { (motion, error) in
+        if self.motionManager.isDeviceMotionAvailable {
+            self.motionManager.startDeviceMotionUpdates(to: self.motionQueue, withHandler: { (motion, error) in
                 self.handleMotion(motion)
             })
         }
     }
     
     func stop() {
-        if self.motionManager.deviceMotionActive {
+        if self.motionManager.isDeviceMotionActive {
             self.motionManager.stopDeviceMotionUpdates()
             self.motionFilter.reset()
         }
     }
     
-    func handleMotion(motion: CMDeviceMotion?) {
+    func handleMotion(_ motion: CMDeviceMotion?) {
         guard let motion = motion else { return }
 //        print(String(format: "1 %-6+.3f %-6+.3f %-6+.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z))
 //        print(String(format: "2 %-6+.3f %-6+.3f %-6+.3f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z))
@@ -74,8 +74,8 @@ class MotionManager {
 class MotionFilter {
     
     var denoiseLevel: Int = 3
-    private var lastValues: [Double] = [Double]()
-    private var lastValuesSum: Double = 0
+    fileprivate var lastValues: [Double] = [Double]()
+    fileprivate var lastValuesSum: Double = 0
     
     init(denoiseLevel: Int = 0) {
         self.denoiseLevel = denoiseLevel
@@ -86,7 +86,7 @@ class MotionFilter {
         self.lastValuesSum = 0
     }
     
-    func filter(value: Double) -> Double {
+    func filter(_ value: Double) -> Double {
         if denoiseLevel == 0 {
             return value
         }
@@ -94,7 +94,7 @@ class MotionFilter {
         while self.lastValues.count >= denoiseLevel {
             if let firstValue = self.lastValues.first {
                 self.lastValuesSum -= firstValue
-                self.lastValues.removeAtIndex(0)
+                self.lastValues.remove(at: 0)
             }
         }
         self.lastValues.append(value)
